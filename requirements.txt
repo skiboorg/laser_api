@@ -1,0 +1,9 @@
+Django>=5.0
+djangorestframework
+djoser
+pillow
+python-dotenv
+django-cors-headers
+django-filter
+django-ckeditor-5
+pytils
