@@ -7,6 +7,7 @@ from apps.data.views import (
     ReviewViewSet,
     ProjectViewSet,
 )
+from apps.data.views.news import GetNews,GetNewsItem
 
 router = DefaultRouter()
 router.register(r'industries', IndustryViewSet, basename='industry')
@@ -16,5 +17,7 @@ router.register(r'reviews', ReviewViewSet, basename='review')
 router.register(r'projects', ProjectViewSet, basename='project')
 
 urlpatterns = [
+    path('news/', GetNews.as_view()),
+    path('news/<slug>/', GetNewsItem.as_view()),
     path('', include(router.urls)),
 ]

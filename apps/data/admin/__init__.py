@@ -3,6 +3,7 @@ from .service import ServiceAdmin, ServiceAdvantageInline, ServiceTechnicalSpecI
 from .equipment import EquipmentAdmin, EquipmentAdvantageInline, EquipmentTechnicalSpecInline, EquipmentPhotoInline
 from .review import ReviewAdmin
 from .project import ProjectAdmin
+from .news import NewsItemAdmin
 
 __all__ = [
     'IndustryAdmin',
@@ -15,4 +16,5 @@ __all__ = [
     'EquipmentPhotoInline',
     'ReviewAdmin',
     'ProjectAdmin',
+    'NewsItemAdmin',
 ]
