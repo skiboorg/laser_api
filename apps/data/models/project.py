@@ -7,7 +7,7 @@ class Project(BaseModel):
     """Реализованные проекты"""
     title = models.CharField(max_length=255, verbose_name='Название проекта')
     slug = models.CharField("Название услуги", max_length=255, editable=False, blank=True, null=True, db_index=True)
-    description = CKEditor5Field(verbose_name='Описание', blank=True, config_name='default')
+    description = CKEditor5Field(verbose_name='Описание', blank=True, config_name='extends')
     image = models.ImageField(upload_to='projects/', blank=True, null=True, verbose_name='Изображение')
     tags = models.TextField(blank=True, verbose_name='Тэги (через запятую)', null=True)
 
@@ -25,3 +25,8 @@ class Project(BaseModel):
         return [tag.strip() for tag in self.tags.split(',') if tag.strip()]
     def __str__(self):
         return self.title
+
+
+class ProjectImage(models.Model):
+    news_item = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_images')
+    image = models.FileField('Картинка', upload_to='news/images', blank=False, null=True)

@@ -13,7 +13,7 @@ class NewsItem(models.Model):
     slug = models.CharField('ЧПУ',max_length=255,
                             help_text='Если не заполнено, создается на основе поля Назавание',
                             blank=True, null=True, editable=False)
-    content = CKEditor5Field(verbose_name='Редактор', blank=True, config_name='default')
+    content = CKEditor5Field(verbose_name='Редактор', blank=True, config_name='extends')
     show_on_main = models.BooleanField("Показывать на главной", default=False)
     tags = models.TextField(blank=True, verbose_name='Тэги (через запятую)', null=True)
     created = models.DateField(blank=True, null=True)

@@ -19,7 +19,7 @@ class Equipment(BaseModel):
     background_image = models.ImageField(upload_to='equipment/backgrounds/', blank=True, null=True, verbose_name='Фото на задний фон')
     
     # Основное содержимое
-    description = CKEditor5Field(verbose_name='Описание оборудования', blank=True, config_name='default')
+    description = CKEditor5Field(verbose_name='Описание оборудования', blank=True, config_name='extends')
     
     # Связи
     industries = models.ManyToManyField(

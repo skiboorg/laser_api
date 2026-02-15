@@ -1,13 +1,16 @@
 from django.contrib import admin
-from apps.data.models import Project
+from apps.data.models import Project,ProjectImage
 
+class ImageInline(admin.TabularInline):
+    model = ProjectImage
+    extra = 0
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['title', 'created_at', 'updated_at']
     search_fields = ['title', 'description']
     readonly_fields = ['uuid', 'created_at', 'updated_at']
-    
+    inlines = [ImageInline]
     fieldsets = (
         ('Основная информация', {
             'fields': ('title', 'description', 'image','tags')
