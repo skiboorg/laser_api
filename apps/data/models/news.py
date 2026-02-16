@@ -18,6 +18,12 @@ class NewsItem(models.Model):
     tags = models.TextField(blank=True, verbose_name='Тэги (через запятую)', null=True)
     created = models.DateField(blank=True, null=True)
 
+    photo = models.ImageField(upload_to='avatars/', blank=True, null=True, verbose_name='Фото человека')
+    full_name = models.CharField(max_length=255,blank=True, null=True,  verbose_name='ФИО')
+    position = models.CharField(max_length=255, blank=True, null=True, verbose_name='Подпись к ФИО')
+
+
+
     def __str__(self):
         return f'{self.name}'
 

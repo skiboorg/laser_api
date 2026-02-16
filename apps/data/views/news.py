@@ -1,5 +1,7 @@
 from rest_framework import generics
+from rest_framework.parsers import MultiPartParser, FormParser
 from apps.data.serializers.news import *
+from apps.data.models.cb import CallbackForm
 
 class GetNews(generics.ListAPIView):
     serializer_class = NewsItemShortSerializer
@@ -17,3 +19,9 @@ class GetNewsItem(generics.RetrieveAPIView):
     serializer_class = NewsItemSerializer
     queryset = NewsItem.objects.filter()
     lookup_field = 'slug'
+
+
+class NewForm(generics.CreateAPIView):
+    queryset = CallbackForm
+    serializer_class = CallbackFormSerializer
+    parser_classes = [MultiPartParser, FormParser]

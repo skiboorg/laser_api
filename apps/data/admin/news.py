@@ -1,5 +1,6 @@
 from django.contrib import admin
 from apps.data.models.news import NewsItem, Image
+from apps.data.models.cb import CallbackForm
 
 class ImageInline(admin.TabularInline):
     model = Image
@@ -9,3 +10,7 @@ class ImageInline(admin.TabularInline):
 class NewsItemAdmin(admin.ModelAdmin):
     list_display = ['name', 'order_num', 'show_on_main']
     inlines = [ImageInline]
+
+@admin.register(CallbackForm)
+class CallbackFormAdmin(admin.ModelAdmin):
+    list_display = ['name', 'company', 'created_at','is_done']
