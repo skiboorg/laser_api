@@ -9,7 +9,7 @@ class Review(BaseModel):
     photo = models.ImageField(upload_to='reviews/', blank=True, null=True, verbose_name='Фото человека')
     full_name = models.CharField(max_length=255, verbose_name='ФИО')
     position = models.CharField(max_length=255, blank=True, verbose_name='Подпись к ФИО')
-    text = CKEditor5Field(verbose_name='Текст отзыва', config_name='default')
+    text = CKEditor5Field(verbose_name='Текст отзыва', config_name='extends')
     
     class Meta:
         verbose_name = 'Отзыв клиента'

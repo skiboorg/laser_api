@@ -7,3 +7,17 @@ class CallbackForm(models.Model):
     file= models.FileField('Карточка предприятия',upload_to='forms',blank=True, null=True)
     is_done = models.BooleanField('Обработана', default=False, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Team(models.Model):
+
+    photo = models.ImageField(upload_to='reviews/', blank=True, null=True, verbose_name='Фото человека')
+    full_name = models.CharField(max_length=255, verbose_name='ФИО')
+    position = models.CharField(max_length=255, blank=True, verbose_name='Подпись к ФИО')
+
+    class Meta:
+        verbose_name = 'Команда'
+        verbose_name_plural = 'Команда'
+
+    def __str__(self):
+        return f'{self.full_name} - {self.position}'

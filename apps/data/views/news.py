@@ -1,7 +1,8 @@
 from rest_framework import generics
 from rest_framework.parsers import MultiPartParser, FormParser
 from apps.data.serializers.news import *
-from apps.data.models.cb import CallbackForm
+from apps.data.serializers.service import TeamSerializer
+from apps.data.models.cb import CallbackForm,Team
 
 class GetNews(generics.ListAPIView):
     serializer_class = NewsItemShortSerializer
@@ -25,3 +26,7 @@ class NewForm(generics.CreateAPIView):
     queryset = CallbackForm
     serializer_class = CallbackFormSerializer
     parser_classes = [MultiPartParser, FormParser]
+
+class TeamView(generics.ListAPIView):
+    queryset = Team.objects.all()
+    serializer_class = TeamSerializer

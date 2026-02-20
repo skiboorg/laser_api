@@ -27,13 +27,13 @@ class ServiceAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Основная информация', {
-            'fields': ('title', 'meta_description', 'short_description', 'tags')
+            'fields': ('title', 'meta_description','ment_title', 'short_description', 'tags')
         }),
         ('Медиа для карточки', {
             'fields': ('icon',)
         }),
         ('Медиа для страницы', {
-            'fields': ('video_background', 'image_background', 'description_image'),
+            'fields': ('video_background', 'image_background', 'description_image','show_video','vk_video',),
             'classes': ('collapse',)
         }),
         ('Описание', {

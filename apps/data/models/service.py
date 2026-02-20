@@ -11,6 +11,7 @@ class Service(BaseModel):
     title = models.CharField(max_length=255, verbose_name='Название услуги')
     slug = models.CharField("Название услуги", max_length=255,
                             editable=False, blank=True, null=True, db_index=True)
+    ment_title = models.TextField(blank=True, verbose_name='Meta Title')
     meta_description = models.TextField(blank=True, verbose_name='Meta Description')
     short_description = models.TextField(blank=True, verbose_name='Короткое описание (для карточки)')
     
@@ -21,10 +22,13 @@ class Service(BaseModel):
     video_background = models.FileField(upload_to='services/videos/', blank=True, null=True, verbose_name='Видео на задний фон')
     image_background = models.ImageField(upload_to='services/backgrounds/', blank=True, null=True, verbose_name='Фото на задний фон')
     description_image = models.ImageField(upload_to='services/descriptions/', blank=True, null=True, verbose_name='Фото на описание')
-    
+
+    show_video = models.BooleanField('показывать видеоплеер',default=False,null=False, blank=True)
+    vk_video = models.TextField('VK видео', blank=True, null=True)
+
     # Основное содержимое
     tags = models.TextField(blank=True, verbose_name='Тэги (через запятую)', null=True)
-    description = CKEditor5Field(verbose_name='Описание услуги', blank=True, config_name='default')
+    description = CKEditor5Field(verbose_name='Описание услуги', blank=True, config_name='extends')
     
     # Связи
     industries = models.ManyToManyField(
@@ -105,3 +109,5 @@ class ServiceTechnicalSpec(BaseModel):
     
     def __str__(self):
         return f'{self.service.title} - {self.title}'
+
+

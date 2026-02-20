@@ -3,7 +3,12 @@ from apps.data.models import Service, ServiceAdvantage, ServiceTechnicalSpec
 from .industry import IndustrySerializer
 from .project import ProjectSerializer
 from .review import ReviewSerializer
+from apps.data.models.cb import Team
 
+class TeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Team
+        fields = "__all__"
 
 class ServiceAdvantageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -52,6 +57,7 @@ class ServiceDetailSerializer(serializers.ModelSerializer):
         fields = [
             'uuid',
             'title',
+            'ment_title',
             'meta_description',
             'short_description',
             'icon',
@@ -66,6 +72,8 @@ class ServiceDetailSerializer(serializers.ModelSerializer):
             'industries',
             'projects',
             'reviews',
+            'show_video',
+            'vk_video',
             'created_at',
             'updated_at',
         ]
