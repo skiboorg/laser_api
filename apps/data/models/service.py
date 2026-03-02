@@ -99,8 +99,8 @@ class ServiceTechnicalSpec(BaseModel):
     )
     order = models.PositiveIntegerField(default=0, verbose_name='Порядок вывода')
     title = models.CharField(max_length=255, verbose_name='Заголовок')
-    content = CKEditor5Field(verbose_name='Контент', config_name='default')
-    image = models.FileField(upload_to='services/specs/', blank=True, null=True, verbose_name='Прикрепленное фото (SVG)')
+    content = CKEditor5Field(verbose_name='Контент', config_name='extends')
+    image = models.FileField(upload_to='services/specs/', blank=True, null=True, verbose_name='Прикрепленное фото (SVG)', editable=False)
     
     class Meta:
         verbose_name = 'Техническая характеристика услуги'
