@@ -33,7 +33,7 @@ class ServiceAdmin(admin.ModelAdmin):
             'fields': ('icon',)
         }),
         ('Медиа для страницы', {
-            'fields': ('video_background', 'image_background', 'description_image','show_video','vk_video',),
+            'fields': ('video_background', 'image_background','image_background_mobile', 'description_image','show_video','vk_video',),
             'classes': ('collapse',)
         }),
         ('Описание', {
