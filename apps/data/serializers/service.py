@@ -63,6 +63,7 @@ class ServiceDetailSerializer(serializers.ModelSerializer):
             'icon',
             'video_background',
             'image_background',
+            'image_background_mobile',
             'description_image',
             'tags',
             'tags_list',
