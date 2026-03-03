@@ -21,6 +21,7 @@ class Service(BaseModel):
     # Медиа для страницы услуги
     video_background = models.FileField(upload_to='services/videos/', blank=True, null=True, verbose_name='Видео на задний фон')
     image_background = models.ImageField(upload_to='services/backgrounds/', blank=True, null=True, verbose_name='Фото на задний фон')
+    image_background_mobile = models.ImageField(upload_to='services/backgrounds/', blank=True, null=True, verbose_name='Фото на задний фон mobile')
     description_image = models.ImageField(upload_to='services/descriptions/', blank=True, null=True, verbose_name='Фото на описание')
 
     show_video = models.BooleanField('показывать видеоплеер',default=False,null=False, blank=True)
@@ -100,7 +101,7 @@ class ServiceTechnicalSpec(BaseModel):
     order = models.PositiveIntegerField(default=0, verbose_name='Порядок вывода')
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = CKEditor5Field(verbose_name='Контент', config_name='extends')
-    image = models.FileField(upload_to='services/specs/', blank=True, null=True, verbose_name='Прикрепленное фото (SVG)', editable=False)
+    image = models.FileField(upload_to='services/specs/', blank=True, null=True, verbose_name='Прикрепленное фото (SVG)')
     
     class Meta:
         verbose_name = 'Техническая характеристика услуги'
