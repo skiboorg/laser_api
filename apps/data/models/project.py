@@ -10,6 +10,7 @@ class Project(BaseModel):
     description = CKEditor5Field(verbose_name='Описание', blank=True, config_name='extends')
     image = models.ImageField(upload_to='projects/', blank=True, null=True, verbose_name='Изображение')
     tags = models.TextField(blank=True, verbose_name='Тэги (через запятую)', null=True)
+    show_at_index = models.BooleanField('На главной', default=True,blank=True,null=False)
 
     class Meta:
         verbose_name = 'Реализованный проект'

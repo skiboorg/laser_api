@@ -58,6 +58,7 @@ class EquipmentDetailSerializer(serializers.ModelSerializer):
             'short_description',
             'main_image',
             'background_image',
+            'image_background_mobile',
             'description',
             'advantages',
             'technical_specs',

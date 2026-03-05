@@ -17,6 +17,8 @@ class Equipment(BaseModel):
     # Медиа
     main_image = models.ImageField(upload_to='equipment/main/', blank=True, null=True, verbose_name='Основное фото (на главной)')
     background_image = models.ImageField(upload_to='equipment/backgrounds/', blank=True, null=True, verbose_name='Фото на задний фон')
+    image_background_mobile = models.ImageField(upload_to='equipment/backgrounds/', blank=True, null=True,
+                                                verbose_name='Фото на задний фон mobile')
     
     # Основное содержимое
     description = CKEditor5Field(verbose_name='Описание оборудования', blank=True, config_name='extends')

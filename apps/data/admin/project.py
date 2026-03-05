@@ -7,13 +7,13 @@ class ImageInline(admin.TabularInline):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at', 'updated_at']
+    list_display = ['title', 'created_at', 'show_at_index']
     search_fields = ['title', 'description']
     readonly_fields = ['uuid', 'created_at', 'updated_at']
     inlines = [ImageInline]
     fieldsets = (
         ('Основная информация', {
-            'fields': ('title', 'description', 'image','tags')
+            'fields': ('show_at_index','title', 'description', 'image','tags')
         }),
         ('Системная информация', {
             'fields': ('uuid', 'created_at', 'updated_at'),
