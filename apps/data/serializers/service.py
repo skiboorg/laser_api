@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.data.models import Service, ServiceAdvantage, ServiceTechnicalSpec
+from apps.data.models import Service, ServiceAdvantage, ServiceTechnicalSpec, ServiceStep
 from .industry import IndustrySerializer
 from .project import ProjectSerializer
 from .review import ReviewSerializer
@@ -9,6 +9,12 @@ class TeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team
         fields = "__all__"
+
+
+class ServiceStepSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ServiceStep
+        fields = ['text', 'title']
 
 class ServiceAdvantageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -51,7 +57,8 @@ class ServiceDetailSerializer(serializers.ModelSerializer):
     industries = IndustrySerializer(many=True, read_only=True)
     projects = ProjectSerializer(many=True, read_only=True)
     reviews = ReviewSerializer(many=True, read_only=True)
-    
+    steps = ServiceStepSerializer(many=True, read_only=True)
+
     class Meta:
         model = Service
         fields = [
@@ -72,6 +79,7 @@ class ServiceDetailSerializer(serializers.ModelSerializer):
             'technical_specs',
             'industries',
             'projects',
+            'steps',
             'reviews',
             'show_video',
             'vk_video',

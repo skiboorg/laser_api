@@ -1,6 +1,12 @@
 from django.contrib import admin
-from apps.data.models import Service, ServiceAdvantage, ServiceTechnicalSpec
+from apps.data.models import Service, ServiceAdvantage, ServiceTechnicalSpec, ServiceStep
 
+
+class ServiceStepInline(admin.TabularInline):
+    model = ServiceStep
+    extra = 0
+    fields = ['order', 'title', 'text']
+    ordering = ['order']
 
 class ServiceAdvantageInline(admin.TabularInline):
     model = ServiceAdvantage
@@ -23,7 +29,7 @@ class ServiceAdmin(admin.ModelAdmin):
     list_filter = ['created_at', 'industries']
     readonly_fields = ['uuid', 'created_at', 'updated_at']
     filter_horizontal = ['industries', 'projects', 'reviews']
-    inlines = [ServiceAdvantageInline, ServiceTechnicalSpecInline]
+    inlines = [ServiceAdvantageInline, ServiceTechnicalSpecInline, ServiceStepInline]
     
     fieldsets = (
         ('Основная информация', {

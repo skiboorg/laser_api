@@ -37,7 +37,7 @@ class EquipmentAdmin(admin.ModelAdmin):
             'fields': ('title', 'meta_description', 'short_description')
         }),
         ('Медиа', {
-            'fields': ('main_image', 'background_image')
+            'fields': ('main_image', 'background_image','image_background_mobile')
         }),
         ('Описание', {
             'fields': ('description',)

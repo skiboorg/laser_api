@@ -112,3 +112,23 @@ class ServiceTechnicalSpec(BaseModel):
         return f'{self.service.title} - {self.title}'
 
 
+class ServiceStep(BaseModel):
+    service = models.ForeignKey(
+        Service,
+        on_delete=models.CASCADE,
+        related_name='steps',
+        verbose_name='Услуга'
+    )
+    order = models.PositiveIntegerField(default=0, verbose_name='Порядок вывода')
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
+    text = models.TextField(verbose_name='Описание')
+
+
+
+    class Meta:
+        verbose_name = 'Шаг'
+        verbose_name_plural = 'Шаги'
+        ordering = ['order']
+
+    def __str__(self):
+        return f'{self.service.title} - {self.title}'
