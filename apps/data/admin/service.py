@@ -24,7 +24,7 @@ class ServiceTechnicalSpecInline(admin.StackedInline):
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at', 'updated_at']
+    list_display = ['title', 'created_at','show_at_index', 'updated_at']
     search_fields = ['title', 'short_description', 'description', 'tags']
     list_filter = ['created_at', 'industries']
     readonly_fields = ['uuid', 'created_at', 'updated_at']
@@ -33,7 +33,7 @@ class ServiceAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Основная информация', {
-            'fields': ('title', 'meta_description','ment_title', 'short_description', 'tags')
+            'fields': ('show_at_index','title', 'meta_description','ment_title', 'short_description', 'tags')
         }),
         ('Медиа для карточки', {
             'fields': ('icon',)

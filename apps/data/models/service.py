@@ -8,6 +8,7 @@ from pytils.translit import slugify
 class Service(BaseModel):
     """Услуги"""
     # Основная информация
+    show_at_index = models.BooleanField('На главной', default=True, blank=True, null=False)
     title = models.CharField(max_length=255, verbose_name='Название услуги')
     slug = models.CharField("Название услуги", max_length=255,
                             editable=False, blank=True, null=True, db_index=True)

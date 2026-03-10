@@ -6,13 +6,13 @@ from apps.data.serializers import ServiceListSerializer, ServiceDetailSerializer
 
 class ServiceViewSet(viewsets.ModelViewSet):
     """ViewSet для услуг"""
-    queryset = Service.objects.prefetch_related(
-        'advantages',
-        'technical_specs',
-        'industries',
-        'projects',
-        'reviews'
-    ).all()
+    # queryset = Service.objects.prefetch_related(
+    #     'advantages',
+    #     'technical_specs',
+    #     'industries',
+    #     'projects',
+    #     'reviews'
+    # ).all()
     permission_classes = [IsAuthenticatedOrReadOnly]
     lookup_field = 'slug'
     
@@ -21,3 +21,21 @@ class ServiceViewSet(viewsets.ModelViewSet):
         if self.action == 'list':
             return ServiceListSerializer
         return ServiceDetailSerializer
+
+    def get_queryset(self):
+        at_index = self.request.query_params.get('index', False)
+        if at_index == 'true':
+            return Service.objects.prefetch_related(
+        'advantages',
+        'technical_specs',
+        'industries',
+        'projects',
+        'reviews'
+    ).filter(show_at_index=True)
+        return Service.objects.prefetch_related(
+        'advantages',
+        'technical_specs',
+        'industries',
+        'projects',
+        'reviews'
+    ).all()
