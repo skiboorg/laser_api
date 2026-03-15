@@ -8,6 +8,7 @@ from pytils.translit import slugify
 class Service(BaseModel):
     """Услуги"""
     # Основная информация
+    order_num = models.IntegerField(default=0)
     show_at_index = models.BooleanField('На главной', default=True, blank=True, null=False)
     title = models.CharField(max_length=255, verbose_name='Название услуги')
     slug = models.CharField("Название услуги", max_length=255,
@@ -55,7 +56,7 @@ class Service(BaseModel):
     class Meta:
         verbose_name = 'Услуга'
         verbose_name_plural = 'Услуги'
-        ordering = ['-created_at']
+        ordering = ['order_num']
     
     def __str__(self):
         return self.title

@@ -33,7 +33,7 @@ class ServiceAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Основная информация', {
-            'fields': ('show_at_index','title', 'meta_description','ment_title', 'short_description', 'tags')
+            'fields': ('order_num', 'show_at_index','title', 'meta_description','ment_title', 'short_description', 'tags')
         }),
         ('Медиа для карточки', {
             'fields': ('icon',)
