@@ -46,6 +46,6 @@ class CallbackFormSerializer(serializers.ModelSerializer):
 
         extra_kwargs = {
             "name": {"error_messages": {"required": "Имя обязательное поле"}, 'required': True},
-            'company': {"error_messages": {"required": "Наименование компании обязательное поле"},'required': True},
+            # 'company': {"error_messages": {"required": "Наименование компании обязательное поле"},'required': True},
             'file': {'required': False},
         }

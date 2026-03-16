@@ -8,9 +8,12 @@ from pytils.translit import slugify
 class Equipment(BaseModel):
     """Оборудование"""
     # Основная информация
+
+
     title = models.CharField(max_length=255, verbose_name='Название оборудования')
     slug = models.CharField("Название услуги", max_length=255,
                             editable=False, blank=True, null=True, db_index=True)
+    ment_title = models.TextField(blank=True, verbose_name='Meta Title')
     meta_description = models.TextField(blank=True, verbose_name='Meta Description')
     short_description = models.TextField(blank=True, verbose_name='Короткое описание (для главной)')
     

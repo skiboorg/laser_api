@@ -34,7 +34,7 @@ class EquipmentAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Основная информация', {
-            'fields': ('title', 'meta_description', 'short_description')
+            'fields': ('title','ment_title', 'meta_description', 'short_description')
         }),
         ('Медиа', {
             'fields': ('main_image', 'background_image','image_background_mobile')

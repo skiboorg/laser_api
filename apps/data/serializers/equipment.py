@@ -54,6 +54,7 @@ class EquipmentDetailSerializer(serializers.ModelSerializer):
         fields = [
             'uuid',
             'title',
+            'ment_title',
             'meta_description',
             'short_description',
             'main_image',

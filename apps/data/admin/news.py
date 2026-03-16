@@ -13,7 +13,7 @@ class NewsItemAdmin(admin.ModelAdmin):
 
 @admin.register(CallbackForm)
 class CallbackFormAdmin(admin.ModelAdmin):
-    list_display = ['name', 'company', 'created_at','is_done']
+    list_display = ['name', 'created_at','is_done']
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
