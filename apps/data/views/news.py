@@ -3,7 +3,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from apps.data.serializers.news import *
 from apps.data.serializers.service import TeamSerializer
 from apps.data.models.cb import CallbackForm,Team
-
+from django.views.decorators.csrf import csrf_exempt
 class GetNews(generics.ListAPIView):
     serializer_class = NewsItemShortSerializer
     def get_queryset(self):
@@ -22,6 +22,7 @@ class GetNewsItem(generics.RetrieveAPIView):
     lookup_field = 'slug'
 
 
+@csrf_exempt
 class NewForm(generics.CreateAPIView):
     queryset = CallbackForm
     serializer_class = CallbackFormSerializer
